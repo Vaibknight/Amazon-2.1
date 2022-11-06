@@ -9,6 +9,7 @@ def index(request):
 def cart(request):
     if request.method == "POST":
         items_json = request.POST.get('itemsJson','')
+        total = request.POST.get('total','')
         name = request.POST.get('name', '')
         email = request.POST.get('email', '')
         address = request.POST.get('address1', '')+" "+ request.POST.get('address2', '')
@@ -18,7 +19,7 @@ def cart(request):
         phone = request.POST.get('phone', '')
 
 
-        order = Orders(items_json=items_json, name=name,email=email,phone=phone,address=address,city=city,state=state,zip_code=zip_code)
+        order = Orders(items_json=items_json, name=name,email=email,phone=phone,address=address,city=city,state=state,zip_code=zip_code,total=total)
         order.save()
         thank = True
         id = order.order_id
