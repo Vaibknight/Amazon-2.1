@@ -6,4 +6,7 @@ urlpatterns = [
     
     path('',views.index,name='index'),
     path('cart/',views.cart,name='cart'),
-]
+    path('handlerequest/', views.handlerequest, name="handlerequest"),
+    
+
+    ]
